@@ -1,0 +1,22 @@
+.map {
+    background-color: #3a3b3b;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    max-width: 50%;
+    height: 500px;
+    z-index: 10;
+    margin: 0px 10px 0px 20px;
+}
+
+.map-inset > * {
+    width: 600px;
+    height: 500px;
+}
+
+@media (max-width: 1220px) {
+    .map {
+        min-width: 95%;
+        margin: 0;
+    }
+}
