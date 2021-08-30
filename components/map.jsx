@@ -4,6 +4,7 @@ const EventMap = withScriptjs(withGoogleMap((props) => {
     const { eventMarker } = props
     const newMarker = {}
 
+    //setting up new eventMarker to update event location on map
     if (eventMarker) {
         newMarker['lat'] = parseFloat(eventMarker['latitude'])
         newMarker['lng'] = parseFloat(eventMarker['longitude'])

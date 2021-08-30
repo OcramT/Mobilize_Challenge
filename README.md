@@ -17,6 +17,8 @@ To setup in your local environment, please follow the instructions below.
 ```
 npm install
 ```
+*** Note: upon testing, this sometimes generates an error on initial installation depending upon the Node version being used. This was a misstep on my part but can be remedied by using NVM to change Node versions. It's currently working on Node version 14.17.1 and has demonstrated errors on Node version 16.5.0.
+
 3. Add the corresponding API key (which should have been sent to you) to `MAP_API_KEY` in the `.env` file.  
 4. Run the following command to bundle and start up the server:
 ```
@@ -29,11 +31,11 @@ npm run dev
 
 I utilized NextJS for its light weight, quick setup, and easy configuration. NextJS's server-side rendering is also a convenient performance boost. 
 
-I broke out various components into separate files so that I could keep each bit of functionality as compartmentalized as possible. I did the same with their corresponding CSS files.
+I broke out various components into separate files so that I could keep each bit of functionality as compartmentalized as possible. I did the same with their corresponding CSS files (and used some media queries to add for very basic responsiveness).
 
-I utilized React Hooks to create simpler, more contained components without the pitfalls of classes.
+I leveraged React Hooks to create simpler, more contained components without the pitfalls of class components.
 
-I also added the React Google Maps package. This allowed easily synchronization with the Google Maps API as it very quickly renders a map with minimal setup.
+I also added the React Google Maps package. This allowed easily synchronization with the Google Maps API and facilitated quick map rendering with minimal setup.
 
 Using Mobilize's Public JSON API was intuitive and easy to use. The documentation was super clear! I used the `zipcode` parameter to easily filter all events by proximity to the user. I also utilized the `Next` and `Previous` fields to create paginated results by binding corresponding HTML and fetch calls to `onClick` functions. 
 

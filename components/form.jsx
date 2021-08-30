@@ -4,6 +4,12 @@ const Form = (props) => {
     const { handleLocation } = props;
     const [textField, setTextField] = useState('')
 
+    /*
+      I am using the handleLocation function here which is passed from the Index
+      component. It grab's the User's zipcode (which is saved in state from the 
+      input element) and passes it back to be used in the fetchAllEvents function 
+      with the zipcode passed as a parameter
+    */
     const handleSubmit = useCallback(() => {
         handleLocation(textField)
     })

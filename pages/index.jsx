@@ -4,6 +4,12 @@ import Preview from "../components/preview";
 import Form from "../components/form";
 import EventMap from "../components/map";
 
+/* 
+  If I had more time I would have broken the events list out into a separate 
+  component - it grew more than I anticipated and would be better for clarity 
+  to have it broken out.
+*/
+
 const HomePage = ({ mapKey }) => {
     const [currentPageEvents, setCurrentPageEvents] = useState(null)
     const [nextPage, setNextPage] = useState()
@@ -12,13 +18,19 @@ const HomePage = ({ mapKey }) => {
     const [userLocation, setUserLocation] = useState(null)
     const [eventMarker, setEventMarker] = useState(null)
 
+    /* 
+      This function fires when clicking the 'Next' button and updates state 
+      to trigger a rerender of the event list element and keep track of 
+      the previous and next pages for pagination 
+    */
     const getNext = useCallback( async () => {
         const nextEvents = await fetchAllEvents(nextPage)
         setCurrentPageEvents(nextEvents.data)
         setNextPage(nextEvents.next)
         setPrevPage(nextEvents.previous)
     })
-
+    
+    // same as above but for the previous button
     const getPrev = useCallback(async () => {
         const prevEvents = await fetchAllEvents(prevPage)
         setCurrentPageEvents(prevEvents.data)
@@ -32,6 +44,10 @@ const HomePage = ({ mapKey }) => {
         setEventMarker(location)
     })
 
+    /* 
+      This function - which is passed as a prop to the Preview component to assist
+      in rendering an Event's corresponding information 
+    */
     const handleLocation = useCallback(async (location) => {
         setUserLocation(location)
         if (location) {

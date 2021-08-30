@@ -1,7 +1,12 @@
 const Preview = (props) => {
+    // added a default in case the event did not include a feature image
     const default_img = "https://mobilizeamerica.imgix.net/uploads/organization/logo-for-mobilize-feed%403x_20200930173319016754.png?auto=format"
     
     if (props.eventPreview) {
+        /*
+        destructuring all the necessary properties from data object to
+        clean up render/return a bit
+        */
         const {
             featured_image_url,
             location,
@@ -16,6 +21,7 @@ const Preview = (props) => {
         } = location
     
 
+        // added ternary so there's somethig to display before an event is selected
         return ( !props.eventPreview 
             ? <div className='empty-state'>Choose an Event to See More Information!</div> 
             : ( <section className='preview-section'>
@@ -54,7 +60,7 @@ const Preview = (props) => {
                 </div>
             </section>
         ))} else {
-            return  <div className='empty-state'>
+            return  <div className='empty-state'> 
                         Choose an Event to See More Information!
                     </div>
         }
